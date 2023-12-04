@@ -1,4 +1,4 @@
 export interface Answer{
-    code?: string,
-    text?: string,
+    id?: string,
+    textResponse?: string,
 }

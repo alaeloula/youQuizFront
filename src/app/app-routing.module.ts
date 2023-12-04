@@ -2,11 +2,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {LevelesComponent} from "./component/leveles/leveles.component";
 import {DashbordComponent} from "./component/dashbord/dashbord.component";
+import { SubjectsComponent } from './component/subjects/subjects.component';
+import { NotFoundComponent } from './component/not-found/not-found.component';
+import { QuestionsComponent } from './component/questions/questions.component';
+import { AnswersComponent } from './component/answers/answers.component';
 
 const routes: Routes = [
   {path :"",component:DashbordComponent},
-  {path:"level",component:LevelesComponent}
-  /*{path:"footer",component:FooterComponent}*/
+  {path:"level",component:LevelesComponent},
+  {path:"subject",component:SubjectsComponent},
+  {path:"question",component:QuestionsComponent},
+  {path:"answer",component:AnswersComponent},
+  {path:"**",component:NotFoundComponent}
 ];
 
 @NgModule({

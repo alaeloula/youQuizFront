@@ -19,7 +19,8 @@ export class LevelService {
     const url :string =`${this.apiUrl}/${level.id}`;
     return this.http.delete<Level>(url);
   }
-  addTask(level: Level): Observable<Level> {
+  addLevel(level: Level): Observable<Level> {
+    console.log(123)
     return this.http.post<Level>(this.apiUrl, level);
   }
 }
