@@ -12,12 +12,13 @@ import Swal from 'sweetalert2';
   styleUrls: ['./questions.component.css']
 })
 export class QuestionsComponent implements OnInit {
-  // deleteQuestion(question: QuestionReq): void {
-  //   this.questionService
-  //     .deleteQuestion(question)
-  //     .subscribe(
-  //       () => (this.questions = this.questions.filter(s => s.id !== question.id)));
-  // }
+  totalItems: number = 100; // Mettez le nombre total d'éléments ici
+  itemsPerPage: number = 10;
+
+  questions: QuestionRes[] = [];
+  faTimes = faTimes;
+  constructor(private questionService: QuestionService) { }
+
   async deleteQuestion(question: QuestionRes) {
     const result = await Swal.fire({
       title: 'Confirmation',
@@ -44,11 +45,8 @@ export class QuestionsComponent implements OnInit {
     }
   }
   
+ 
 
-
-  questions: QuestionRes[] = [];
-  faTimes = faTimes;
-  constructor(private questionService: QuestionService) { }
   ngOnInit(): void {
     this.questionService.getQuestion().subscribe((data: any) => {
       this.questions = data.content;

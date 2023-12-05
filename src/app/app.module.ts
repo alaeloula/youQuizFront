@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import {FormsModule} from "@angular/forms";
 
@@ -23,6 +24,7 @@ import { QuestionsComponent } from './component/questions/questions.component';
 import { AddQuestionsComponent } from './component/add-questions/add-questions.component';
 import { AnswersComponent } from './component/answers/answers.component';
 import { AddAnswerComponent } from './component/add-answer/add-answer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { AddAnswerComponent } from './component/add-answer/add-answer.component'
     AppRoutingModule,
     FontAwesomeModule,
       HttpClientModule,
-      FormsModule
+      FormsModule,
+      MatPaginatorModule,
+      BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
