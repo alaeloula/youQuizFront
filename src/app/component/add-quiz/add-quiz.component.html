@@ -1,0 +1,83 @@
+<!-- Bouton d'ajout -->
+<button data-modal-target="defaultModal" data-modal-toggle="defaultModal"
+    class="ml-60 block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    type="button">
+    Ajouter
+</button>
+
+<!-- Formulaire principal -->
+<div id="defaultModal" tabindex="-1" aria-hidden="true"
+    class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <form class="max-w-md mx-auto bg-white rounded-lg shadow-lg p-6" (ngSubmit)="onSubmit()">
+        
+        <!-- Champ pour le score de réussite -->
+        <div class="relative z-0 w-full mb-5 group">
+            <input type="number" min="0" name="successScore" [(ngModel)]="successScore" id="successScore"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder="Score de réussite" required />
+            <label for="successScore"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                Score de réussite
+            </label>
+        </div>
+
+        <!-- Champ pour autoriser la visualisation des réponses -->
+        <div class="relative z-0 w-full mb-5 group">
+            <input type="checkbox" name="canViewAnswers" [(ngModel)]="canViewAnswers" id="canViewAnswers"
+                class="peer focus:ring-blue-500 dark:focus:ring-blue-800 h-4 w-4 text-blue-600 border-gray-300 rounded dark:text-blue-500 dark:border-gray-600 dark:bg-transparent focus:outline-none dark:focus:outline-none"
+                required />
+            <label for="canViewAnswers"
+                class="peer-focus:font-medium text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                Autoriser la visualisation des réponses
+            </label>
+        </div>
+        
+        <!-- Champ pour autoriser la visualisation du résultat -->
+        <div class="relative z-0 w-full mb-5 group">
+            <input type="checkbox" name="canSeeResult" [(ngModel)]="canSeeResult" id="canSeeResult"
+                class="peer focus:ring-blue-500 dark:focus:ring-blue-800 h-4 w-4 text-blue-600 border-gray-300 rounded dark:text-blue-500 dark:border-gray-600 dark:bg-transparent focus:outline-none dark:focus:outline-none"
+                required />
+            <label for="canSeeResult"
+                class="peer-focus:font-medium text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                Autoriser la visualisation du résultat
+            </label>
+        </div>
+
+        <!-- Autres champs existants (score, instructions, remarques, matricule du formateur) -->
+        <div class="relative z-0 w-full mb-5 group">
+            <input name="remarks" [(ngModel)]="remarks" id="remarks"
+            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder="" required>
+            <label for="remarks"
+            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+
+                Remarques
+            </label>
+        </div>
+
+         <!-- Champ pour les instructions -->
+         <div class="relative z-0 w-full mb-5 group">
+            <textarea name="instructions" [(ngModel)]="instructions" id="instructions"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder="" required></textarea>
+            <label for="instructions"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                Instructions
+            </label>
+        </div>
+
+        <!-- Champ pour le matricule du formateur -->
+        <div class="relative z-0 w-full mb-5 group">
+            <input type="number" min="0" name="trainer_matricule" [(ngModel)]="trainer_matricule" id="trainer_matricule"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder="Matricule du formateur" required />
+            <label for="trainer_matricule"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                Matricule du formateur
+            </label>
+        </div>
+
+        <button type="submit"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Valider</button>
+    </form>
+</div>

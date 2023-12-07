@@ -25,6 +25,12 @@ import { AddQuestionsComponent } from './component/add-questions/add-questions.c
 import { AnswersComponent } from './component/answers/answers.component';
 import { AddAnswerComponent } from './component/add-answer/add-answer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddValidationComponent } from './component/add-validation/add-validation.component';
+import { ValidationComponent } from './component/validation/validation.component';
+import { QuizComponent } from './component/quiz/quiz.component';
+import { AddQuizComponent } from './component/add-quiz/add-quiz.component';
+import { TemporisationComponent } from './component/temporisation/temporisation.component';
+import { AssignmentComponent } from './component/assignment/assignment.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +47,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     QuestionsComponent,
     AddQuestionsComponent,
     AnswersComponent,
-    AddAnswerComponent
+    AddAnswerComponent,
+    AddValidationComponent,
+    ValidationComponent,
+    QuizComponent,
+    AddQuizComponent,
+    TemporisationComponent,
+    AssignmentComponent
   ],
   imports: [
     BrowserModule,

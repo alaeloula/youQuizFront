@@ -1,0 +1,37 @@
+<div class="max-w-md mx-auto">
+    <form id="addQuestionsForm" method="post" (ngSubmit)="onSubmit()" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <div class="mb-4">
+        <h2 class="text-xl font-bold mb-2">Sélectionnez les questions à ajouter pour le quiz {{ quizId }}:</h2>
+        <div id="questionsList" *ngFor="let question of questions">
+          <label class="flex items-center mb-2">
+            <input
+            type="checkbox"
+            name="selectedQuestions"
+            [value]="question.id || ''"
+            (change)="toggleQuestionSelection(question.id || '', $event)"
+            [checked]="isSelected(question.id || '')"
+              class="mr-2 leading-tight"
+            >
+
+            
+            <span class="text-sm">{{ question.questionText || '' }}</span>
+          </label>
+        </div>
+        
+          
+
+
+      </div>
+      <input type="hidden" name="quizId" [value]="quizId.toString()" class="mb-4">
+
+
+      
+      <button
+        type="submit"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      >
+        Ajouter les questions au quiz
+      </button>
+    </form>
+  </div>
+  

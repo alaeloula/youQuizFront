@@ -1,5 +1,5 @@
 export interface Level{
-    id?: string,
+    id?: number,
     description?: string,
     pointMin: number | null,
     pointMax: number | null,
