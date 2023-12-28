@@ -1,4 +1,5 @@
 import { Quiz } from "./quiz";
+import { Student } from "./student";
 
 export interface Assignment{
     id?:number,
@@ -6,5 +7,5 @@ export interface Assignment{
     dateEnd: Date,
     score: number,
     test:Quiz,
-    student_id:number
+    student:Student
 }

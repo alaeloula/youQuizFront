@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 
 import { OnInit } from '@angular/core';
 import { initFlowbite } from 'flowbite';
@@ -14,8 +16,8 @@ import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { LevelesComponent } from './component/leveles/leveles.component';
 import { AddLevelComponent } from './component/add-level/add-level.component';
-import { DashbordComponent } from './component/dashbord/dashbord.component'
-import {HttpClientModule} from "@angular/common/http";
+
+import { HttpClientModule } from "@angular/common/http";
 import { ButtonComponent } from './component/button/button.component';
 import { SubjectsComponent } from './component/subjects/subjects.component';
 import { AddSubjectComponent } from './component/add-subject/add-subject.component';
@@ -31,6 +33,8 @@ import { QuizComponent } from './component/quiz/quiz.component';
 import { AddQuizComponent } from './component/add-quiz/add-quiz.component';
 import { TemporisationComponent } from './component/temporisation/temporisation.component';
 import { AssignmentComponent } from './component/assignment/assignment.component';
+import { DashComponent } from './component/dash/dash.component';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +43,7 @@ import { AssignmentComponent } from './component/assignment/assignment.component
     NavbarComponent,
     LevelesComponent,
     AddLevelComponent,
-    DashbordComponent,
+    
     ButtonComponent,
     SubjectsComponent,
     AddSubjectComponent,
@@ -53,16 +57,19 @@ import { AssignmentComponent } from './component/assignment/assignment.component
     QuizComponent,
     AddQuizComponent,
     TemporisationComponent,
-    AssignmentComponent
+    AssignmentComponent,
+    DashComponent
   ],
   imports: [
     BrowserModule,
+    DialogModule,
+    ButtonModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FontAwesomeModule,
-      HttpClientModule,
-      FormsModule,
-      MatPaginatorModule,
-      BrowserAnimationsModule
+    HttpClientModule,
+    FormsModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

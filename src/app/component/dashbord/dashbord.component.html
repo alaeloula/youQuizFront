@@ -1,1 +1,55 @@
-<p>dashbord works!</p>
+<div class="container ml-60">
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+          <th scope="col" class="px-6 py-3">
+            quiz
+          </th>
+          <th scope="col" class="px-6 py-3">
+            trainer
+          </th>
+          <th scope="col" class="px-6 py-3">
+            action
+          </th>
+        </tr>
+      </thead>
+
+      <tbody *ngFor="let quiz of quizes">
+        <tr
+          class="odd:bg-blend-darken odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+          <a routerLink="/temporisation/{{quiz.id}}">
+            <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              {{quiz.remarks}}
+            </td>
+          </a>
+          <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            {{quiz.trainer?.firstName}}
+          </td>
+          <td class="px-6 py-4">
+            <fa-icon *ngIf="quiz.id !== undefined" (click)="showDialog(quiz.id)" [ngStyle]="{'color':'green'}"
+              [icon]="faPlay"></fa-icon>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card flex justify-content-center">
+  <!-- <p-button (click)="showDialog()" icon="pi pi-external-link" label="Show"></p-button> -->
+  <p-dialog header="Header" [(visible)]="visible" [style]="{width: '50vw'}" *ngIf="temporisation[0] && temporisation.length > 0">
+    <div class="bg-white p-8 rounded-lg shadow-md w-80 mx-auto">
+      <h2 class="text-xl font-bold mb-4">Question :{{ temporisation[0]?.question?.questionText}} </h2>
+      <div class="space-y-2" >
+        <label *ngFor="let vd of validation" class="flex items-center">
+          <input type="radio" name="q1" value="paris" class="mr-2">
+          <span>{{vd.response?.textResponse}}</span>
+        </label>
+      </div>
+    </div>
+    <button *ngIf=""  class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300 ease-in-out">
+      NEXT
+    </button>
+  </p-dialog>
+</div>

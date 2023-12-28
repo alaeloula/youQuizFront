@@ -16,6 +16,9 @@ export class ValidationService {
   getValidation(): Observable<validation[]> {
     return this.http.get<validation[]>(this.apiUrl);
   }
+  getValidationByQst(id:number): Observable<validation[]> {
+    return this.http.get<validation[]>(this.apiUrl+'/byQuestion/'+id);
+  }
 
   addValidation(validation: validation): Observable<validation>
   {

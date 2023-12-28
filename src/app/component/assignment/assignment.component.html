@@ -1,1 +1,39 @@
-<p>assignment works!</p>
+<div class="container ml-60">
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+          <th scope="col" class="px-6 py-3">
+            quiz
+          </th>
+          
+          <th scope="col" class="px-6 py-3">
+            Date End
+          </th>
+
+          <th scope="col" class="px-6 py-3">
+            Action
+          </th>
+        </tr>
+      </thead>
+  
+      <tbody *ngFor="let assignment of filteredAssignments">
+        <tr 
+          class="odd:bg-blend-darken odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            {{assignment.test.remarks}}
+          </th>
+        
+          <td class="px-6 py-4">
+            {{assignment.dateEnd}}
+          </td>
+         
+          <td class="px-6 py-4">
+            <a routerLink="passerQuiz"><fa-icon  [ngStyle]="{'color':'green'}" [icon]="faPlay "></fa-icon></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
