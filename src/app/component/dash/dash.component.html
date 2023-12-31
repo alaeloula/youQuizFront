@@ -67,12 +67,10 @@
         <div class="bg-white p-8 rounded-lg shadow-md w-80 mx-auto">
             <h2 class="text-xl font-bold mb-4">Question :{{ currenttemporisation?.question?.questionText}} </h2>
             <div class="space-y-2">
-                {{assignment_id}}
                 <label *ngFor="let vd of validation" class="flex items-center">
                     <input type="radio" name="validation_id" [value]="vd.id" [(ngModel)]="validation_id" class="mr-2">
                     <span>{{vd.response?.textResponse}}</span>
                 </label>
-                {{validation_id}}
             </div>
         </div>
         <button (click)="nextQuestion()"
@@ -80,4 +78,13 @@
             NEXT
         </button>
     </p-dialog>
+    <p-dialog header="Score" [(visible)]="visible" [style]="{width: '50vw'}" *ngIf="test==-1">
+        <div class="container mx-auto px-4">
+            
+            <div  class="mt-8">
+              <h2 class="text-3xl font-bold mb-4">Votre score est : <span class="text-green-500">{{ this.score }}</span></h2>
+            </div>
+          </div>
+    </p-dialog>
+   
 </div>

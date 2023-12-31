@@ -27,6 +27,8 @@ export class DashComponent implements OnInit {
   validation: validation[] = [];
   visible: boolean = false;
   indice: number = 0;
+  score:number=0;
+  test:number=0
   constructor(private quizService: QuizService, private assignmentService: AssignmentService, private temporisationService: TemporisationService, private validationService: ValidationService, private assignmentValidationService: AssignmentValidationService) { }
 
   ngOnInit(): void {
@@ -41,9 +43,12 @@ export class DashComponent implements OnInit {
   showDialog(quizId: number, assignment_id: number) {
     this.assignment_id = assignment_id;
     this.indice = 0;
+    this.score=0;
     this.visible = true;
     this.temporisationService.getTemporisationsByQuiz(quizId).subscribe((data: any) => {
       this.temporisation = data;
+      this.test=data.length;
+      console.log(this.test);
       this.currenttemporisation = this.temporisation[0];
       if (this.currenttemporisation && typeof this.currenttemporisation.question.id === 'number') {
         const questionId = this.currenttemporisation.question.id as number
@@ -67,8 +72,12 @@ export class DashComponent implements OnInit {
       validation_id: this.validation_id,
       assignment_id:  this.assignment_id
     }
+    this.validationService.getValidationById(this.validation_id).subscribe((data:any)=>{
+      this.score+=(data.point);
+    })
+    
     this.assignmentValidationService.addanswer(AssignmentValidation).subscribe((data:any)=>{
-      console.log(data)
+      
     })
 
     this.currenttemporisation = this.temporisation[this.indice++];
@@ -76,7 +85,10 @@ export class DashComponent implements OnInit {
     if (this.currenttemporisation && typeof this.currenttemporisation.question.id === 'number') {
       const questionId = this.currenttemporisation.question.id as number
       this.getValidationByQst(questionId);
+    }else{
+
     }
+    this.test--;
   }
 
 }

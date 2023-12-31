@@ -20,6 +20,10 @@ export class ValidationService {
     return this.http.get<validation[]>(this.apiUrl+'/byQuestion/'+id);
   }
 
+  getValidationById(id:number): Observable<validation[]> {
+    return this.http.get<validation[]>(this.apiUrl+'/'+id);
+  }
+
   addValidation(validation: validation): Observable<validation>
   {
     return this.http.post<validation>(this.apiUrl, validation);
