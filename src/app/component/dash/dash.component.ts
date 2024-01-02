@@ -91,4 +91,12 @@ export class DashComponent implements OnInit {
     this.test--;
   }
 
+  passed(){
+    
+    this.assignmentService.getpassed(this.assignment_id).subscribe((data)=>{
+      console.log(data);
+    });
+    this.visible=false;
+  }
+
 }

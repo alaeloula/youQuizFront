@@ -33,7 +33,7 @@
                         {{assignment.student.firstName}}{{assignment.student.lastName}}
                     </td>
                     <td class="px-6 py-4">
-                        <fa-icon *ngIf="assignment.test.id !== undefined && assignment.id !== undefined"
+                        <fa-icon *ngIf="assignment.test.id !== undefined && assignment.id !== undefined && !assignment.passed " 
                             (click)="showDialog(assignment.test.id,assignment.id)" [ngStyle]="{'color':'green'}"
                             [icon]="faPlay"></fa-icon>
                     </td>
@@ -85,6 +85,10 @@
               <h2 class="text-3xl font-bold mb-4">Votre score est : <span class="text-green-500">{{ this.score }}</span></h2>
             </div>
           </div>
+          <button (click)="passed()"
+            class="mt-4 px-4 py-2 bg-yellow-500 text-white rounded hover:bg-blue-600 transition duration-300 ease-in-out">
+            CLOSE
+        </button>
     </p-dialog>
    
 </div>

@@ -6,6 +6,7 @@ export interface Assignment{
     dateStart:Date,
     dateEnd: Date,
     score: number,
+    passed:boolean,
     test:Quiz,
     student:Student
 }

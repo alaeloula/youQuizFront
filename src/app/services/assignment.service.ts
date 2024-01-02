@@ -13,6 +13,9 @@ export class AssignmentService {
   getAssignment(): Observable<Assignment[]> {
     return this.http.get<Assignment[]>(this.apiUrl);
   }
+  getpassed(id:number):Observable<Assignment>{
+    return this.http.get<Assignment>(this.apiUrl+'/passed/'+id);
+  }
   // deleteTask(level: Level): Observable<Level> {
   //   const url: string = `${this.apiUrl}/${level.id}`;
   //   return this.http.delete<Level>(url);
